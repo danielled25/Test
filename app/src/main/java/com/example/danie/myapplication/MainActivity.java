@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
 
     private void startEncryptActivity(Editable e){
         //Create an intent to the second activity
