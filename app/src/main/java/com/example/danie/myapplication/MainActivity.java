@@ -23,6 +23,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     //ID code
     static final int CODE = 1;
+    
+    EditText et;
 
 
     @Override
