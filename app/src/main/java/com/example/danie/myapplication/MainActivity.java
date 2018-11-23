@@ -23,6 +23,7 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     //ID code
     static final int CODE = 1;
+    EditText et;
 
 
     @Override
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
 
         //===Part 2: Trigger on first activity sends something to another for display===
         //Button that launches the text activity - find it by ID from the xml
