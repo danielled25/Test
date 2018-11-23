@@ -23,8 +23,6 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     //ID code
     static final int CODE = 1;
-    
-    EditText et;
 
 
     @Override
@@ -49,6 +47,30 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        //===Part 2: Trigger on first activity sends something to another for display===
+        //Button that launches the text activity - find it by ID from the xml
+        final Button launchTextActivity = findViewById(R.id.launchActivity);
+        //Once the button is clicked
+        launchTextActivity.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                //Send the contents of the text field to the method startTextActivity
+                startTextActivity(et.getText().toString());
+            }
+        });
+
+
+      
+
+
+    private void startTextActivity(String text){
+        //Create an intent to send to the TextActivity
+        Intent in = new Intent(MainActivity.this, TextActivity.class);
+        //Put the text field content into the intent
+        in.putExtra("dataInTextField", text);
+        //Send the intent to the activity and start.
+        startActivity(in);
     }
 
     private void startEncryptActivity(Editable e){
