@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     static final int CODE = 1;
     EditText et;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,9 +37,9 @@ public class MainActivity extends AppCompatActivity {
         et = findViewById(R.id.editText);
 
         //What happens when encrypt button is clicked
-        encrypt.setOnClickListener(new View.OnClickListener() {
+        encrypt.setOnClickListener(new View.OnClickListener(){
 
-            public void onClick(View v) {
+            public void onClick(View v){
                 //Get the text entered into the text field
                 Editable e = et.getText();
                 //Send it to a method
@@ -49,15 +48,11 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         //===Part 2: Trigger on first activity sends something to another for display===
         //Button that launches the text activity - find it by ID from the xml
         final Button launchTextActivity = findViewById(R.id.launchActivity);
-
-
         //Once the button is clicked
-
-        launchTextActivity.setOnClickListener(new View.OnClickListener() {
+        launchTextActivity.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 //Send the contents of the text field to the method startTextActivity
@@ -65,9 +60,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    }
-      
 
+        /*===Part 3: Trigger on first activity launches third activity that
+         sends back to the first activity for display===*/
+        //Button that gets button id from xml and will launch the third activity on click
+        final Button launchThirdActivity = findViewById(R.id.button2);
+        //Deal with the click
+        launchThirdActivity.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+               //Launch the third activity
+                startThirdActivity();
+            }
+
+        });
+
+        
+    }
 
     private void startTextActivity(String text){
         //Create an intent to send to the TextActivity
@@ -87,5 +95,44 @@ public class MainActivity extends AppCompatActivity {
         startActivity(in);
     }
 
-    
- }
+    private void startThirdActivity() {
+        //Create an intent to the third activity
+        Intent i = new Intent(MainActivity.this, ThirdActivity.class);
+        //Start the activity to get the result
+        startActivityForResult(i, CODE);
+
+
+        //Returning an image
+        //Create the bitmap based on the byteArray
+        if(getIntent().hasExtra("byteArray")){
+            //Get the image view from xml by ID
+            ImageView preview = findViewById(R.id.imageView);
+            //Create the bitmap
+            Bitmap b = BitmapFactory.decodeByteArray(
+                    getIntent().getByteArrayExtra("byteArray"),0
+                    ,getIntent().getByteArrayExtra("byteArray").length);
+            //Set the contents of the image view to the bitmap
+            preview.setImageBitmap(b);
+
+        }
+
+    }
+
+    @Override
+    //Deals with the result from startActivityForResult
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Check which request we're responding to
+        if (requestCode == CODE) {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK) {
+                Bitmap b = data.getParcelableExtra("bitmap");
+                ImageView preview = findViewById(R.id.imageView);
+                preview.setImageBitmap(b);
+
+
+            }
+        }
+    }
+
+
+    }
