@@ -108,26 +108,9 @@ public class MainActivity extends AppCompatActivity {
         /*===Part 5: Launch Notification to make call===*/
         //Get the button by ID from xml that, once clicked, launches notification
         final Button launchNotification = findViewById(R.id.launchNotification);
-        //Deal with the click
-        launchNotification.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                //Call the method that launches the notification
-                    launchNotification();
+        
 
-            }
-        });
-
-        /*Part 6: (Task 9 in the project spec) Something not taught in lecture*/
-        //Get the button by ID from xml that will allow the user to upload a song
         final Button launchSongPicker = findViewById(R.id.pickSong);
-        //Deal with the click
-        launchSongPicker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Launch the method
-                launchMusicPicker();
-            }
-        });
 
     }
 
