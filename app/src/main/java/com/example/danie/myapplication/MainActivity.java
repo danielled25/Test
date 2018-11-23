@@ -38,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
         et = findViewById(R.id.editText);
 
         //What happens when encrypt button is clicked
-        encrypt.setOnClickListener(new View.OnClickListener(){
+        encrypt.setOnClickListener(new View.OnClickListener() {
 
-            public void onClick(View v){
+            public void onClick(View v) {
                 //Get the text entered into the text field
                 Editable e = et.getText();
                 //Send it to a method
@@ -48,13 +48,16 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-    }
+
 
         //===Part 2: Trigger on first activity sends something to another for display===
         //Button that launches the text activity - find it by ID from the xml
         final Button launchTextActivity = findViewById(R.id.launchActivity);
+
+
         //Once the button is clicked
-        launchTextActivity.setOnClickListener(new View.OnClickListener(){
+
+        launchTextActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Send the contents of the text field to the method startTextActivity
@@ -62,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+    }
       
 
 
