@@ -26,8 +26,3 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-project.gradle.taskGraph.whenReady {
-    connectedAndroidTest {
-        ignoreFailures = true
-    }
-}
