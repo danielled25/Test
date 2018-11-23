@@ -4,7 +4,7 @@ sudo: false
 
 env:
   global:
-    # wait up to 10 minutes for adb to connect to emulator
+    # wait up to 1 minutes for adb to connect to emulator
     - ADB_INSTALL_TIMEOUT=1
 
 android:
@@ -25,7 +25,7 @@ after_script:
   # Emulator Management: Create, Start and Wait
   - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
   - emulator -avd test -no-skin -no-audio -no-window &
-  - android-wait-for-emulator
+ # - android-wait-for-emulator
   - adb shell input keyevent 82 &
   # now run the tests
   - ./gradlew connectedCheck
