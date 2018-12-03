@@ -2,7 +2,7 @@ package com.example.danie.myapplication;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.Context;
+impart android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
 
         //===Part 1: Encrypt and decrypt the sentence===
         //Button that deals with the click
