@@ -2,7 +2,7 @@ package com.example.danie.myapplication;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-impart android.content.Context;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
