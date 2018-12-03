@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         launchAlert.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 //Call method that will launch the alert
-                launchAlert();
+                
 
             }
         });
