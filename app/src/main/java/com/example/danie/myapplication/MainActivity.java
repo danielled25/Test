@@ -13,6 +13,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -172,42 +173,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void launchAlert(){
-        //Create the Alert Dialog
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        // Setting Alert Dialog Title
-        alertDialogBuilder.setTitle(R.string.confirm_exit_title);
-        // Setting Alert Dialog Message
-        alertDialogBuilder.setMessage(R.string.confirm_exit);
-        //Set if the user can click out and avoid the alert - false, so they can't.
-        alertDialogBuilder.setCancelable(false);
-        //Yes button - they want to exit
-        alertDialogBuilder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-            //Close the app
-            @Override
-            public void onClick(DialogInterface arg0, int arg1) {
-                finish();
-            }
-        });
-        //No button - they don't want to exit
-        alertDialogBuilder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-            @Override
-            //Tell them they clicked no - don't exit
-            public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(MainActivity.this, R.string.no_clicked,Toast.LENGTH_SHORT).show();
-            }
-        });
-        //Cancel button - cancel the alert
-        alertDialogBuilder.setNeutralButton(R.string.cancel, new DialogInterface.OnClickListener() {
-            @Override
-            //Tell them they cancelled - don't exit
-            public void onClick(DialogInterface dialog, int which) {
-                Toast.makeText(getApplicationContext(),R.string.cancel_clicked,Toast.LENGTH_SHORT).show();
-            }
-        });
-        //Create the alert
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        //Show the alert
-        alertDialog.show();
+        new ParticleSystem(RainActivity.this, 80, R.drawable.rain_drop, 10000)
+                .setSpeedByComponentsRange(0f, 0f, 0.05f, 0.1f)
+                .setAcceleration(0.00005f, 90)
+                .emitWithGravity(findViewById(R.id.cloud), Gravity.BOTTOM, 8);
     }
 
 
