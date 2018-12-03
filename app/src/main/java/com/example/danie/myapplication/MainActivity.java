@@ -23,9 +23,9 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     //ID code
-    static final int CODE = 1;
+    static final int CODE = 1
     //Declare here for onSaveInstanceState
-    private EditText et;
+    
 
     protected void onSaveInstanceState(Bundle outState)
     {
