@@ -172,12 +172,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void launchAlert(){
-        new ParticleSystem(RainActivity.this, 80, R.drawable.rain_drop, 10000)
-                .setSpeedByComponentsRange(0f, 0f, 0.05f, 0.1f)
-                .setAcceleration(0.00005f, 90)
-                .emitWithGravity(findViewById(R.id.cloud), Gravity.BOTTOM, 8);
-    }
+
 
 
     }
